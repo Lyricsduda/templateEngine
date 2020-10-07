@@ -132,3 +132,14 @@ function intern() {
         team();
     });
 };
+
+// Function to create the final Employye's HTML page
+function outputTeam() {
+    console.log("Creating Team Page");
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(teamBuild), "utf-8");
+}
+
+manager();
