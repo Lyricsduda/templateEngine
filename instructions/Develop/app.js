@@ -70,3 +70,34 @@ function team() {
         } else (outputTeam());
     });
 };
+
+// Funtion to create a engineer to be put on the page
+function engineer() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "engineerName",
+            message: "What is the engineer's name?"
+        },
+        {
+            type: "input",
+            name: "engineerId",
+            message: "What is the engineer's ID?"
+        },
+        {
+            type: "input",
+            name: "engineerEmail",
+            message: "What is the engineer's email?"
+        },
+        {
+            type: "input",
+            name: "engineerGithub",
+            message: "What is the engineer's GitHub username?"
+        }
+    ]).then(function (data) {
+        const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
+        teamBuild.push(engineer);
+        blankId.push(data.engineerId);
+        team();
+    });
+};
