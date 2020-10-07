@@ -37,3 +37,14 @@ const mainQuestions = [
         message: "What is the manager's office number?"
     }
 ];
+
+// Function to write intial information to the empty array's
+function manager() {
+    console.log("Let's build your team");
+    inquirer.prompt(mainQuestions).then(function (data) {
+        const manager = new Manager(data.nameManager, data.managerId, data.emailManager, data.officeNumber);
+        teamBuild.push(manager);
+        blankId.push(data.managerId);
+        team();
+    });
+};
